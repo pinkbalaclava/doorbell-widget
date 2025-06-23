@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties for Sale - Ballito, KwaZulu-Natal | Property24</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* Search Bar */
+        .search-section {
+            background: #fff;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .search-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        /* Results Section */
+        .results-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .results-count {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .sort-options {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        /* Property Grid */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .property-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .property-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .property-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #e74c3c;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .property-details {
+            padding: 1.5rem;
+        }
+        
+        .property-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .property-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .property-location {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .property-agent {
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .agent-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+        
+        .agent-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav {
+                gap: 1rem;
+            }
+            
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .filters {
+                justify-content: center;
+            }
+            
+            .results-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Property24</div>
+            <nav class="nav">
+                <a href="#buy">Buy</a>
+                <a href="#rent">Rent</a>
+                <a href="#sell">Sell</a>
+                <a href="#commercial">Commercial</a>
+                <a href="#news">News</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-content">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search for properties in Ballito, KwaZulu-Natal" value="Ballito, KwaZulu-Natal">
+                <button class="search-btn">Search</button>
+            </div>
+            <div class="filters">
+                <select class="filter-select">
+                    <option>Property Type</option>
+                    <option>House</option>
+                    <option>Apartment</option>
+                    <option>Townhouse</option>
+                </select>
+                <select class="filter-select">
+                    <option>Price Range</option>
+                    <option>R1M - R2M</option>
+                    <option>R2M - R5M</option>
+                    <option>R5M+</option>
+                </select>
+                <select class="filter-select">
+                    <option>Bedrooms</option>
+                    <option>2+</option>
+                    <option>3+</option>
+                    <option>4+</option>
+                </select>
+                <select class="filter-select">
+                    <option>Bathrooms</option>
+                    <option>2+</option>
+                    <option>3+</option>
+                    <option>4+</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="results-header">
+            <div class="results-count">47 properties for sale in Ballito, KwaZulu-Natal</div>
+            <div class="sort-options">
+                <span>Sort by:</span>
+                <select class="filter-select">
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Newest First</option>
+                    <option>Oldest First</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Property Grid -->
+        <div class="property-grid">
+            <!-- Property 1 -->
+            <div class="property-card" onclick="window.location.href='./property1.html'">
+                <div class="property-image">
+                    <div class="property-badge">For Sale</div>
+                    <div>🏖️ Beachfront Property Image</div>
+                </div>
+                <div class="property-details">
+                    <div class="property-price">R4,200,000</div>
+                    <div class="property-title">Stunning Beachfront Home</div>
+                    <div class="property-location">Shakas Rock, Ballito, KwaZulu-Natal</div>
+                    <div class="property-features">
+                        <div class="feature">🛏️ 4 Beds</div>
+                        <div class="feature">🚿 3 Baths</div>
+                        <div class="feature">🚗 2 Garages</div>
+                    </div>
+                    <div class="property-agent">
+                        <div class="agent-avatar"></div>
+                        <div class="agent-name">Sarah Mitchell</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="property-card" onclick="window.location.href='./property2.html'">
+                <div class="property-image">
+                    <div class="property-badge">For Sale</div>
+                    <div>🏡 Modern Estate Home Image</div>
+                </div>
+                <div class="property-details">
+                    <div class="property-price">R6,850,000</div>
+                    <div class="property-title">Luxury Estate Living</div>
+                    <div class="property-location">Simbithi Eco Estate, Ballito, KwaZulu-Natal</div>
+                    <div class="property-features">
+                        <div class="feature">🛏️ 5 Beds</div>
+                        <div class="feature">🚿 4 Baths</div>
+                        <div class="feature">🚗 3 Garages</div>
+                    </div>
+                    <div class="property-agent">
+                        <div class="agent-avatar"></div>
+                        <div class="agent-name">Michael Thompson</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Properties -->
+            <div class="property-card">
+                <div class="property-image">
+                    <div class="property-badge">For Sale</div>
+                    <div>🏠 Family Home Image</div>
+                </div>
+                <div class="property-details">
+                    <div class="property-price">R2,950,000</div>
+                    <div class="property-title">Family Home with Pool</div>
+                    <div class="property-location">Ballito Central, KwaZulu-Natal</div>
+                    <div class="property-features">
+                        <div class="feature">🛏️ 3 Beds</div>
+                        <div class="feature">🚿 2 Baths</div>
+                        <div class="feature">🚗 2 Garages</div>
+                    </div>
+                    <div class="property-agent">
+                        <div class="agent-avatar"></div>
+                        <div class="agent-name">Lisa Johnson</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">
+                    <div class="property-badge">For Sale</div>
+                    <div>🏢 Modern Apartment Image</div>
+                </div>
+                <div class="property-details">
+                    <div class="property-price">R1,750,000</div>
+                    <div class="property-title">Modern Coastal Apartment</div>
+                    <div class="property-location">Ballito Lifestyle Centre, KwaZulu-Natal</div>
+                    <div class="property-features">
+                        <div class="feature">🛏️ 2 Beds</div>
+                        <div class="feature">🚿 2 Baths</div>
+                        <div class="feature">🚗 1 Garage</div>
+                    </div>
+                    <div class="property-agent">
+                        <div class="agent-avatar"></div>
+                        <div class="agent-name">David Wilson</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">
+                    <div class="property-badge">For Sale</div>
+                    <div>🏘️ Townhouse Image</div>
+                </div>
+                <div class="property-details">
+                    <div class="property-price">R3,200,000</div>
+                    <div class="property-title">Secure Townhouse Complex</div>
+                    <div class="property-location">Ballito Hills, KwaZulu-Natal</div>
+                    <div class="property-features">
+                        <div class="feature">🛏️ 3 Beds</div>
+                        <div class="feature">🚿 2 Baths</div>
+                        <div class="feature">🚗 2 Garages</div>
+                    </div>
+                    <div class="property-agent">
+                        <div class="agent-avatar"></div>
+                        <div class="agent-name">Emma Davis</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">
+                    <div class="property-badge">For Sale</div>
+                    <div>🌊 Ocean View Image</div>
+                </div>
+                <div class="property-details">
+                    <div class="property-price">R5,500,000</div>
+                    <div class="property-title">Ocean View Villa</div>
+                    <div class="property-location">Salt Rock, Ballito, KwaZulu-Natal</div>
+                    <div class="property-features">
+                        <div class="feature">🛏️ 4 Beds</div>
+                        <div class="feature">🚿 3 Baths</div>
+                        <div class="feature">🚗 2 Garages</div>
+                    </div>
+                    <div class="property-agent">
+                        <div class="agent-avatar"></div>
+                        <div class="agent-name">James Brown</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load Voice Widget -->
+    <script src="/widget.js"></script>
+</body>
+</html>

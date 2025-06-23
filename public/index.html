@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doorbell Voice Widget</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .bookmarklet-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .bookmarklet-code {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .drag-button {
+            display: inline-block;
+            background: #4ade80;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 1rem;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+        
+        .drag-button:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
+        }
+        
+        .instructions {
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .instructions ol {
+            padding-left: 1.5rem;
+        }
+        
+        .instructions li {
+            margin: 0.5rem 0;
+        }
+        
+        .demo-section {
+            margin: 3rem 0;
+        }
+        
+        .demo-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .demo-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature h3 {
+            margin-top: 0;
+            color: #4ade80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔔 Doorbell Voice Widget</h1>
+        <p class="subtitle">Add a floating voice assistant to any webpage with a simple bookmarklet</p>
+        
+        <div class="bookmarklet-section">
+            <h2>📌 Drag this to your bookmarks bar:</h2>
+            <a href="javascript:(()=>{const s=document.createElement('script');s.src='https://doorbell-widget.netlify.app/widget.js';document.body.appendChild(s);})();" class="drag-button">
+                🎤 Doorbell Voice Assistant
+            </a>
+            
+            <div class="instructions">
+                <h3>How to use:</h3>
+                <ol>
+                    <li><strong>Drag the button above</strong> to your browser's bookmarks bar</li>
+                    <li><strong>Visit any website</strong> where you want to add voice assistance</li>
+                    <li><strong>Click the bookmarklet</strong> in your bookmarks bar</li>
+                    <li><strong>A floating voice widget</strong> will appear in the bottom-right corner</li>
+                    <li><strong>Click to start talking</strong> - the AI will respond with voice</li>
+                </ol>
+            </div>
+            
+            <h3>Bookmarklet Code:</h3>
+            <div class="bookmarklet-code">
+                javascript:(()=>{const s=document.createElement('script');s.src='https://doorbell-widget.netlify.app/widget.js';document.body.appendChild(s);})();
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🎯 Try it now on this page:</h2>
+            <button class="demo-button" onclick="loadWidget()">Load Voice Widget Demo</button>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🎤 Voice First</h3>
+                <p>Natural voice conversations powered by advanced AI. Just speak and get intelligent responses.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🌐 Universal</h3>
+                <p>Works on any website. No installation required - just click the bookmarklet.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>💫 Beautiful UI</h3>
+                <p>Clean, modern interface that doesn't interfere with the host website's design.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🔒 Privacy Focused</h3>
+                <p>Secure voice processing with no data stored locally. Conversations are processed in real-time.</p>
+            </div>
+        </div>
+        
+        <div class="bookmarklet-section">
+            <h2>🛠 Technical Details</h2>
+            <ul style="text-align: left;">
+                <li><strong>Voice Engine:</strong> VAPI.ai with OpenAI voice models</li>
+                <li><strong>Deployment:</strong> Hosted on Netlify with global CDN</li>
+                <li><strong>Compatibility:</strong> Works in all modern browsers</li>
+                <li><strong>Performance:</strong> Lightweight script (~15KB) with lazy loading</li>
+                <li><strong>Integration:</strong> Webhook integration for conversation logging</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function loadWidget() {
+            // Load the widget script
+            const script = document.createElement('script');
+            script.src = './widget.js';
+            document.body.appendChild(script);
+        }
+        
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.feature, .bookmarklet-section').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

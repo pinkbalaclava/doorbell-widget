@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Estate Living for Sale - Simbithi Eco Estate, Ballito | Property24</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .back-link {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+        
+        /* Property Gallery */
+        .property-gallery {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #2d5a27, #4a7c59);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .image-counter {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+        }
+        
+        .thumbnail {
+            height: 80px;
+            background: linear-gradient(45deg, #4a7c59, #2d5a27);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+        
+        /* Property Details */
+        .property-info {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        .property-header {
+            margin-bottom: 2rem;
+        }
+        
+        .property-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .property-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .property-address {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .property-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .feature-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .description {
+            margin-bottom: 2rem;
+        }
+        
+        .description h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .description p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .amenities {
+            margin-bottom: 2rem;
+        }
+        
+        .amenities h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+        
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+        }
+        
+        .amenity-item::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .agent-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 auto 1rem;
+        }
+        
+        .agent-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .agent-title {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #c0392b;
+        }
+        
+        .btn-secondary {
+            background: #fff;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+        }
+        
+        .btn-secondary:hover {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .property-stats {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .stats-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        
+        .mortgage-calculator {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .calculator-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .monthly-payment {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .payment-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .property-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .property-price {
+                font-size: 2rem;
+            }
+            
+            .property-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Property24</div>
+            <nav class="nav">
+                <a href="./listings.html" class="back-link">← Back to Search</a>
+                <a href="#buy">Buy</a>
+                <a href="#rent">Rent</a>
+                <a href="#sell">Sell</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Left Column -->
+        <div class="left-column">
+            <!-- Property Gallery -->
+            <div class="property-gallery">
+                <div class="main-image">
+                    <div class="image-counter">1 / 32</div>
+                    🏡 Luxury Estate Home - Eco Living at its Finest
+                </div>
+                <div class="thumbnail-grid">
+                    <div class="thumbnail">🏠 Front View</div>
+                    <div class="thumbnail">🛏️ Master Suite</div>
+                    <div class="thumbnail">🍽️ Dining Room</div>
+                    <div class="thumbnail">🌿 Garden View</div>
+                </div>
+            </div>
+
+            <!-- Property Information -->
+            <div class="property-info">
+                <div class="property-header">
+                    <div class="property-price">R6,850,000</div>
+                    <h1 class="property-title">Luxury Estate Living</h1>
+                    <div class="property-address">45 Eco Boulevard, Simbithi Eco Estate, Ballito, KwaZulu-Natal, 4420</div>
+                </div>
+
+                <div class="property-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🛏️</div>
+                        <div class="feature-value">5</div>
+                        <div class="feature-label">Bedrooms</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚿</div>
+                        <div class="feature-value">4</div>
+                        <div class="feature-label">Bathrooms</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚗</div>
+                        <div class="feature-value">3</div>
+                        <div class="feature-label">Garages</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📐</div>
+                        <div class="feature-value">450m²</div>
+                        <div class="feature-label">Floor Size</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🌿</div>
+                        <div class="feature-value">1200m²</div>
+                        <div class="feature-label">Erf Size</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏊</div>
+                        <div class="feature-value">Yes</div>
+                        <div class="feature-label">Swimming Pool</div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <h3>Property Description</h3>
+                    <p>
+                        Experience the pinnacle of luxury living in this magnificent 5-bedroom home nestled within the prestigious Simbithi Eco Estate. This architectural masterpiece seamlessly blends contemporary design with sustainable living principles.
+                    </p>
+                    <p>
+                        The grand entrance leads to expansive open-plan living areas with soaring ceilings and floor-to-ceiling windows that frame the lush indigenous gardens. The gourmet kitchen features premium finishes, a central island, and top-of-the-line appliances.
+                    </p>
+                    <p>
+                        The luxurious master suite occupies the entire upper level, complete with a private balcony, walk-in dressing room, and spa-like en-suite. Four additional bedrooms, each with en-suite bathrooms, provide comfort for family and guests.
+                    </p>
+                    <p>
+                        The outdoor entertainment area features a sparkling pool, built-in braai, and covered patio overlooking the meticulously landscaped gardens. Additional features include a triple garage, wine cellar, and home office.
+                    </p>
+                </div>
+
+                <div class="amenities">
+                    <h3>Estate & Property Features</h3>
+                    <div class="amenities-grid">
+                        <div class="amenity-item">Eco-friendly design & materials</div>
+                        <div class="amenity-item">Solar power system</div>
+                        <div class="amenity-item">Rainwater harvesting</div>
+                        <div class="amenity-item">Indigenous landscaping</div>
+                        <div class="amenity-item">Golf course access</div>
+                        <div class="amenity-item">Nature trails & bird hides</div>
+                        <div class="amenity-item">24/7 estate security</div>
+                        <div class="amenity-item">Clubhouse facilities</div>
+                        <div class="amenity-item">Tennis courts</div>
+                        <div class="amenity-item">Children's play areas</div>
+                        <div class="amenity-item">Equestrian center</div>
+                        <div class="amenity-item">Beach access</div>
+                        <div class="amenity-item">Wine cellar</div>
+                        <div class="amenity-item">Home office/study</div>
+                        <div class="amenity-item">Staff accommodation</div>
+                        <div class="amenity-item">Triple garage</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Sidebar -->
+        <div class="sidebar">
+            <!-- Contact Agent -->
+            <div class="contact-card">
+                <div class="agent-avatar"></div>
+                <div class="agent-name">Michael Thompson</div>
+                <div class="agent-title">Luxury Property Specialist</div>
+                <div class="contact-buttons">
+                    <a href="tel:+27123456790" class="btn btn-primary">📞 Call Agent</a>
+                    <a href="mailto:michael@property24.com" class="btn btn-secondary">✉️ Email Agent</a>
+                    <button class="btn btn-primary" onclick="requestViewing()">📅 Request Viewing</button>
+                </div>
+            </div>
+
+            <!-- Property Stats -->
+            <div class="property-stats">
+                <div class="stats-title">Property Details</div>
+                <div class="stat-item">
+                    <span>Property Type:</span>
+                    <span>House</span>
+                </div>
+                <div class="stat-item">
+                    <span>Listing Date:</span>
+                    <span>10 Dec 2024</span>
+                </div>
+                <div class="stat-item">
+                    <span>Property ID:</span>
+                    <span>116063981</span>
+                </div>
+                <div class="stat-item">
+                    <span>Estate Levies:</span>
+                    <span>R3,200/month</span>
+                </div>
+                <div class="stat-item">
+                    <span>Rates & Taxes:</span>
+                    <span>R4,100/month</span>
+                </div>
+                <div class="stat-item">
+                    <span>Pet Friendly:</span>
+                    <span>Yes</span>
+                </div>
+            </div>
+
+            <!-- Mortgage Calculator -->
+            <div class="mortgage-calculator">
+                <div class="calculator-title">Mortgage Calculator</div>
+                <input type="number" class="calculator-input" placeholder="Deposit amount" value="685000">
+                <input type="number" class="calculator-input" placeholder="Interest rate %" value="11.5">
+                <input type="number" class="calculator-input" placeholder="Loan term (years)" value="20">
+                <div class="monthly-payment">
+                    <div>Estimated Monthly Payment</div>
+                    <div class="payment-amount">R62,750</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function requestViewing() {
+            alert('Viewing request functionality would integrate with the voice assistant or contact form system.');
+        }
+        
+        // Simple mortgage calculator
+        document.querySelectorAll('.calculator-input').forEach(input => {
+            input.addEventListener('input', calculateMortgage);
+        });
+        
+        function calculateMortgage() {
+            const price = 6850000;
+            const deposit = parseInt(document.querySelectorAll('.calculator-input')[0].value) || 685000;
+            const rate = parseFloat(document.querySelectorAll('.calculator-input')[1].value) || 11.5;
+            const years = parseInt(document.querySelectorAll('.calculator-input')[2].value) || 20;
+            
+            const principal = price - deposit;
+            const monthlyRate = rate / 100 / 12;
+            const numPayments = years * 12;
+            
+            const monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+            
+            document.querySelector('.payment-amount').textContent = 'R' + Math.round(monthlyPayment).toLocaleString();
+        }
+    </script>
+
+    <!-- Load Voice Widget -->
+    <script src="/widget.js"></script>
+</body>
+</html>

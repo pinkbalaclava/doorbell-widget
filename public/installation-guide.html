@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Widget Installation Guide</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f8fafc;
+        }
+        
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .method {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+        
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .bookmarklet-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .bookmarklet-link:hover {
+            background: #5a67d8;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎤 Voice Widget Installation Guide</h1>
+        <p>Multiple installation methods for maximum compatibility</p>
+    </div>
+
+    <div class="method">
+        <h2>🚀 Method 1: Direct Script Include (Recommended)</h2>
+        <p>Add this script tag to your website's HTML:</p>
+        
+        <div class="code-block">
+&lt;script src="https://resplendent-tanuki-b41ad5.netlify.app/widget.js" async crossorigin="anonymous"&gt;&lt;/script&gt;
+        </div>
+        
+        <div class="success">
+            ✅ <strong>Best for:</strong> Websites with no CSP restrictions<br>
+            ✅ <strong>Features:</strong> Full voice functionality, analytics, advanced UI
+        </div>
+    </div>
+
+    <div class="method">
+        <h2>🛡️ Method 2: Failsafe Script (CSP-Compatible)</h2>
+        <p>For websites with Content Security Policy restrictions:</p>
+        
+        <div class="code-block">
+&lt;script src="https://resplendent-tanuki-b41ad5.netlify.app/failsafe-widget.js" async crossorigin="anonymous"&gt;&lt;/script&gt;
+        </div>
+        
+        <div class="success">
+            ✅ <strong>Best for:</strong> Websites with medium CSP restrictions<br>
+            ✅ <strong>Features:</strong> Adaptive loading, multiple fallbacks, error handling
+        </div>
+    </div>
+
+    <div class="method">
+        <h2>🔒 Method 3: Ultra-Safe Script (Strict CSP)</h2>
+        <p>For websites with very strict CSP that blocks eval():</p>
+        
+        <div class="code-block">
+&lt;script src="https://resplendent-tanuki-b41ad5.netlify.app/ultra-safe-widget.js" async crossorigin="anonymous"&gt;&lt;/script&gt;
+        </div>
+        
+        <div class="success">
+            ✅ <strong>Best for:</strong> Enterprise websites with strict security<br>
+            ✅ <strong>Features:</strong> No eval(), pure DOM manipulation, CSP-compliant
+        </div>
+    </div>
+
+    <div class="method">
+        <h2>📖 Method 4: Bookmarklet (Any Website)</h2>
+        <p>Drag this link to your bookmarks bar to add the widget to any website:</p>
+        
+        <a href="javascript:(()=>{if(window.DoorbellVoiceWidget){console.log('Widget already loaded');return;}var config={apiKey:'8c0a9ef0-3f3a-4c1e-b389-948703fbe032',webhookUrl:'https://hook.eu2.make.com/vi3b8idpjq4hsyk8n1gqu1ywf6iutku3',widgetUrl:'https://resplendent-tanuki-b41ad5.netlify.app/',fallbackUrls:['https://resplendent-tanuki-b41ad5.netlify.app/widget.js','https://resplendent-tanuki-b41ad5.netlify.app/failsafe-widget.js','https://resplendent-tanuki-b41ad5.netlify.app/ultra-safe-widget.js']};var tryLoadWidget=function(urlIndex){if(urlIndex>=config.fallbackUrls.length){createManualWidget();return;}var script=document.createElement('script');script.src=config.fallbackUrls[urlIndex];script.async=true;script.crossOrigin='anonymous';script.onload=function(){console.log('Widget loaded from:',config.fallbackUrls[urlIndex]);window.DoorbellVoiceWidget=true;};script.onerror=function(){console.warn('Failed to load from:',config.fallbackUrls[urlIndex]);tryLoadWidget(urlIndex+1);};try{document.head.appendChild(script);}catch(e){console.warn('Script injection blocked, trying next URL');tryLoadWidget(urlIndex+1);}};var createManualWidget=function(){window.DoorbellVoiceWidget=true;var widget=document.createElement('div');widget.id='bookmarklet-voice-widget';widget.style.cssText='position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; cursor: pointer; z-index: 999999; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.15); transition: transform 0.2s ease;';var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('width','24');svg.setAttribute('height','24');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('fill','none');svg.setAttribute('stroke','white');svg.setAttribute('stroke-width','2');var path1=document.createElementNS('http://www.w3.org/2000/svg','path');path1.setAttribute('d','M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z');var path2=document.createElementNS('http://www.w3.org/2000/svg','path');path2.setAttribute('d','M19 10v2a7 7 0 0 1-14 0v-2');var line1=document.createElementNS('http://www.w3.org/2000/svg','line');line1.setAttribute('x1','12');line1.setAttribute('y1','19');line1.setAttribute('x2','12');line1.setAttribute('y2','23');var line2=document.createElementNS('http://www.w3.org/2000/svg','line');line2.setAttribute('x1','8');line2.setAttribute('y1','23');line2.setAttribute('x2','16');line2.setAttribute('y2','23');svg.appendChild(path1);svg.appendChild(path2);svg.appendChild(line1);svg.appendChild(line2);widget.appendChild(svg);widget.addEventListener('mouseover',function(){this.style.transform='scale(1.1)';});widget.addEventListener('mouseout',function(){this.style.transform='scale(1)';});widget.addEventListener('click',function(){var message=prompt('Voice Assistant (Bookmarklet)\n\nVoice features are limited due to browser security.\nPlease enter your message:');if(message&&message.trim()){fetch(config.webhookUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'bookmarklet_message',message:message.trim(),timestamp:new Date().toISOString(),url:window.location.href,title:document.title,source:'bookmarklet_fallback'})}).catch(function(error){console.warn('Webhook failed:',error);});alert('Message sent: \"'+message+'\"\n\nIn production, this would connect to your voice assistant.');}});document.body.appendChild(widget);console.log('Manual CSP-compliant voice widget loaded via bookmarklet');};tryLoadWidget(0);setTimeout(function(){if(!window.DoorbellVoiceWidget){console.log('Widget loading timeout, creating manual widget');createManualWidget();}},5000);})();" class="bookmarklet-link">🎤 Voice Widget Bookmarklet</a>
+        
+        <div class="step">
+            <strong>Step 1:</strong> Drag the link above to your bookmarks bar
+        </div>
+        <div class="step">
+            <strong>Step 2:</strong> Visit any website where you want to add the voice widget
+        </div>
+        <div class="step">
+            <strong>Step 3:</strong> Click the bookmarklet to instantly add the widget
+        </div>
+        
+        <div class="success">
+            ✅ <strong>Best for:</strong> Testing on any website, temporary installations<br>
+            ✅ <strong>Features:</strong> Works on any site, multiple fallbacks, CSP-aware
+        </div>
+    </div>
+
+    <div class="method">
+        <h2>🔧 Method 5: Manual Integration</h2>
+        <p>For custom implementations or when you need full control:</p>
+        
+        <div class="code-block">
+&lt;script&gt;
+(function() {
+  // Load widget with custom configuration
+  const script = document.createElement('script');
+  script.src = 'https://resplendent-tanuki-b41ad5.netlify.app/widget.js';
+  script.async = true;
+  script.crossOrigin = 'anonymous';
+  
+  script.onload = function() {
+    console.log('Voice widget loaded successfully');
+  };
+  
+  script.onerror = function() {
+    console.warn('Primary widget failed, loading fallback');
+    const fallback = document.createElement('script');
+    fallback.src = 'https://resplendent-tanuki-b41ad5.netlify.app/failsafe-widget.js';
+    fallback.async = true;
+    document.head.appendChild(fallback);
+  };
+  
+  document.head.appendChild(script);
+})();
+&lt;/script&gt;
+        </div>
+        
+        <div class="success">
+            ✅ <strong>Best for:</strong> Custom implementations, advanced configurations<br>
+            ✅ <strong>Features:</strong> Full control, custom error handling, progressive loading
+        </div>
+    </div>
+
+    <div class="method">
+        <h2>🧪 Testing Your Installation</h2>
+        <p>Use these test pages to verify the widget works on your site:</p>
+        
+        <div class="step">
+            <strong>No CSP Test:</strong> <a href="test-pages/no-csp.html" target="_blank">Full functionality test</a>
+        </div>
+        <div class="step">
+            <strong>Medium CSP Test:</strong> <a href="test-pages/medium-csp.html" target="_blank">Moderate restrictions test</a>
+        </div>
+        <div class="step">
+            <strong>Strict CSP Test:</strong> <a href="test-pages/strict-csp.html" target="_blank">High security test</a>
+        </div>
+        <div class="step">
+            <strong>Ultra-Strict CSP Test:</strong> <a href="test-pages/ultra-strict-csp.html" target="_blank">Maximum security test</a>
+        </div>
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ Important Notes:</strong><br>
+        • The widget automatically adapts to your site's security restrictions<br>
+        • Voice features may be limited on sites with strict CSP<br>
+        • All methods include fallback strategies for maximum compatibility<br>
+        • Test thoroughly before deploying to production
+    </div>
+
+    <div class="method">
+        <h2>📞 Support & Troubleshooting</h2>
+        <p>If you encounter issues:</p>
+        
+        <div class="step">
+            <strong>Check Console:</strong> Open browser dev tools and look for error messages
+        </div>
+        <div class="step">
+            <strong>Test CSP:</strong> Use the test pages to identify security restrictions
+        </div>
+        <div class="step">
+            <strong>Try Fallbacks:</strong> If one method fails, try the next more compatible option
+        </div>
+        <div class="step">
+            <strong>Verify URL:</strong> Ensure https://resplendent-tanuki-b41ad5.netlify.app/ is accessible
+        </div>
+    </div>
+</body>
+</html>

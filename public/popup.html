@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: system-ui, sans-serif;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .primary {
+      background: #667eea;
+      color: white;
+    }
+    .secondary {
+      background: #f3f4f6;
+      color: #374151;
+    }
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🎤</div>
+    <h3>Doorbell Voice Widget</h3>
+  </div>
+  
+  <div class="controls">
+    <button id="toggleWidget" class="primary">Toggle Widget</button>
+    <button id="openSettings" class="secondary">Settings</button>
+  </div>
+  
+  <div class="toggle">
+    <input type="checkbox" id="autoLoad" checked>
+    <label for="autoLoad">Auto-load on all sites</label>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

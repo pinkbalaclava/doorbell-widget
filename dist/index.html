@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doorbell Assistant</title>
+    <!-- Load the VAPI Assistant Widget -->
+    <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js" defer></script>
+    <script type="module" crossorigin src="/assets/index-BClJmsTK.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DkuTH_8i.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Voice Assistant UI - Hidden VAPI Widget -->
+    <vapi-assistant
+      assistant-id="d93608e2-7901-4102-94f4-50aecb52a2e6"
+      api-key="246bf454-8e1d-4171-ab64-41e03a5fd70a"
+      style="
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+      "
+    ></vapi-assistant>
+    
+  </body>
+</html>
