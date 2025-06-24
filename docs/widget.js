@@ -36,9 +36,28 @@
     });
   };
 
-  // Everything else stays the same. Your full widget.js code will follow after this point.
+  // Add the rest of your widget.js code (createWidget, addMessage, updateStatus, sendToWebhook, initializeVapi, etc.) below
 
-  // You can paste your entire existing code starting from createWidget() here
-  // ...
+  // For example:
+  const createWidget = () => {
+    console.log("Widget scaffold goes here...");
+    // Insert the rest of your implementation
+  };
 
+  const init = async () => {
+    try {
+      console.log('Initializing Doorbell Voice Widget...');
+      createWidget();
+      const vapi = await loadVapiSDK();
+      console.log('VAPI loaded successfully:', vapi);
+    } catch (error) {
+      console.error('Initialization failed:', error);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
