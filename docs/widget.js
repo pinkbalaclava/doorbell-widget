@@ -8,7 +8,7 @@
   window.DoorbellVoiceWidget = true;
 
   const CONFIG = {
-    apiKey: '8c0a9ef0-3f3a-4c1e-b389-948703fbe032',
+    apiKey: 'ea8d1f1c-1934-4892-a079-174123957cf1',
     assistantId: 'd93608e2-7901-4102-94f4-50aecb52a2e6',
     webhookUrl: 'https://hook.eu2.make.com/vi3b8idpjq4hsyk8n1gqu1ywf6iutku3',
     voice: 'openai'
