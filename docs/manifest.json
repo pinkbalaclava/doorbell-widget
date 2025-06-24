@@ -1,23 +1,26 @@
 {
   "manifest_version": 3,
   "name": "Doorbell Voice Widget",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add a voice assistant widget to any webpage",
-  "permissions": ["activeTab", "storage"],
-  "host_permissions": ["https://*/*", "http://*/*"],
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content-script.js"],
-      "run_at": "document_end"
+      "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["failsafe-widget.js"],
+      "resources": ["widget.js"],
       "matches": ["<all_urls>"]
     }
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_title": "Toggle Voice Widget"
