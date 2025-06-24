@@ -45,6 +45,14 @@
           sendResponse({ status: "loaded" });
         }
       }
+
+      if (request.action === "checkWidget") {
+        const exists = !!document.getElementById("doorbell-voice-widget");
+        sendResponse({ status: exists ? "loaded" : "not_loaded" });
+      }
+
+      // Required to enable async response
+      return true;
     });
 
     chrome.storage.sync.get(["autoLoad"], (result) => {
